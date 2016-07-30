@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/lukevers/lgo/parser"
 	"github.com/urfave/cli"
 	"os"
 	"path/filepath"
@@ -8,11 +9,13 @@ import (
 )
 
 func CommandCompile(c *cli.Context) error {
+	// Grab all files in the current directory
 	files, err := filepath.Glob("*.lgo")
 	if err != nil {
 		return err
 	}
 
+	// Compile files from lgo to go
 	for _, path := range files {
 		file, err := os.Open(path)
 		defer file.Close()
@@ -20,7 +23,7 @@ func CommandCompile(c *cli.Context) error {
 			return err
 		}
 
-		parsed, err := NewParser(file).Parse()
+		parsed, err := parser.NewParser(file).Parse()
 		if err != nil {
 			return err
 		}

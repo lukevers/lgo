@@ -1,0 +1,21 @@
+The very first thing we're going to is set our package name. Since this is an example package and we're going to want to compile it to run as an example, we set it to `package main`.
+
+```
+package main
+```
+
+Now that we've got the package name set, let's import what we're going to need.
+
+```
+import (
+	"fmt"
+)
+```
+
+And lastly let's just say hello.
+
+```
+func main() {
+	fmt.Println("Hello, literate world!")
+}
+```

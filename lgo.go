@@ -14,8 +14,13 @@ func main() {
 	app.Commands = []cli.Command{
 		{
 			Name:   "build",
-			Usage:  "compile packages and dependencies",
+			Usage:  "compile lgo files and build go files",
 			Action: CommandBuild,
+		},
+		{
+			Name:   "compile",
+			Usage:  "compile lgo files to go files",
+			Action: CommandCompile,
 		},
 	}
 

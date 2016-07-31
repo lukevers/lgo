@@ -1,4 +1,4 @@
-This is an example where our file ends in the extension `.md` instead of `.lgo`. This 
+This is an example where our file ends in the extension `.md` instead of `.lgo`.
 
 As always, let's first set our package name before we do anything else. Since we want to build and run this package instead of using it as a package, we're going to set our package to `main`.
 
@@ -6,7 +6,7 @@ As always, let's first set our package name before we do anything else. Since we
 package main
 ```
 
-We're importing the log package because in this example all we're going to do is create a basic logger and print something out. At least it's a little more exciting than hello world.
+We're importing the `log` package because in this example all we're going to do is create a basic logger and print something out. At least it's a little more exciting than hello world. The `os` package is also being imported here because we know that we're going to be printing out with the logger to the OS.
 
 ```
 import (

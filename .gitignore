@@ -26,3 +26,6 @@ lgo
 
 # Annoying files
 .DS_Store
+
+# Test output go files
+/examples/*/*.go

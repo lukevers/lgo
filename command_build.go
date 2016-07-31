@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/urfave/cli"
+	"os/exec"
 )
 
 func CommandBuild(c *cli.Context) error {
@@ -11,6 +12,11 @@ func CommandBuild(c *cli.Context) error {
 		return err
 	}
 
-	// TODO: build go files
+	cmd := exec.Command("go", "build")
+	err = cmd.Run()
+	if err != nil {
+		return err
+	}
+
 	return nil
 }

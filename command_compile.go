@@ -10,8 +10,11 @@ import (
 )
 
 func CommandCompile(c *cli.Context) error {
+	// Get the ext used
+	ext := c.String("extension")
+
 	// Grab all files in the current directory
-	files, err := filepath.Glob(fmt.Sprintf("*.%s", c.String("extension")))
+	files, err := filepath.Glob(fmt.Sprintf("*.%s", ext))
 	if err != nil {
 		return err
 	}
@@ -29,7 +32,9 @@ func CommandCompile(c *cli.Context) error {
 			return err
 		}
 
-		npath := strings.Replace(path, ".lgo", ".go", 1)
+		ext = fmt.Sprintf(".%s", ext)
+		npath := strings.Replace(path, ext, ".go", 1)
+
 		nfile, err := os.Create(npath)
 		if err != nil {
 			return err

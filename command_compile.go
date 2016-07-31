@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/lukevers/lgo/parser"
 	"github.com/urfave/cli"
 	"os"
@@ -10,7 +11,7 @@ import (
 
 func CommandCompile(c *cli.Context) error {
 	// Grab all files in the current directory
-	files, err := filepath.Glob("*.lgo")
+	files, err := filepath.Glob(fmt.Sprintf("*.%s", c.String("extension")))
 	if err != nil {
 		return err
 	}

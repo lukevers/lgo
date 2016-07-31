@@ -36,6 +36,8 @@ func (s *Scanner) Scan() (tok Token, lit string) {
 	switch ch {
 	case eof:
 		return EOF, ""
+	case '\n':
+		return EOL, string(ch)
 	case '`':
 		return TICK, string(ch)
 	}
@@ -101,8 +103,8 @@ func (s *Scanner) read() rune {
 // unread places the previously read rune back on the reader.
 func (s *Scanner) unread() { _ = s.r.UnreadRune() }
 
-// isWhitespace returns true if the rune is a space, tab, or newline.
-func isWhitespace(ch rune) bool { return ch == ' ' || ch == '\t' || ch == '\n' }
+// isWhitespace returns true if the rune is a space, or tab.
+func isWhitespace(ch rune) bool { return ch == ' ' || ch == '\t' }
 
 // isLetter returns true if the rune is a letter.
 func isLetter(ch rune) bool { return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z') }

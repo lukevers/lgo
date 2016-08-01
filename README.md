@@ -13,3 +13,7 @@ This specific tool assumes that your lgo files are basically [Markdown](https://
 Because why not.
 
 I've been interested in literate programming for some time now, but I've never had to chance to do any of it. I've also never written a lexer/parser before, so this is also a fun way to do that.
+
+## Credits
+
+Thanks to [benbjohnson/sql-parser](https://github.com/benbjohnson/sql-parser) for giving me a base parser/scanner to work with.
